@@ -1,8 +1,6 @@
 # base image
 FROM node:13.6.0
 
-COPY ./docker/usr/local/bin/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-
 # Install needed packages
 RUN apt-get update
 RUN apt-get install -y nginx
