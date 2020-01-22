@@ -5,8 +5,6 @@ FROM node:13.6.0
 RUN apt-get update
 RUN apt-get install -y nginx
 
-RUN service nginx disable
-
 COPY ./docker/etc/nginx/sites-enabled/site.conf /etc/nginx/sites-enabled/site.conf
 RUN rm /etc/nginx/sites-enabled/default
 
@@ -28,5 +26,7 @@ RUN ng build --prod
 
 EXPOSE 80
 
+CMD ["ng", "serve", "--proxy-config", "proxy.config.json"]
+
 # start app
-ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
+# ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
