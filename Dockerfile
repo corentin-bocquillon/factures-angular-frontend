@@ -1,6 +1,12 @@
 # base image
 FROM node:13.6.0
 
+# Install needed packages
+RUN apt-get update
+RUN apt-get install -y nginx
+
+COPY ./docker/etc/nginx/sites-enabled/site.conf /etc/nginx/sites-enabled/site.conf
+
 # set working directory
 WORKDIR /usr/src/app
 
@@ -15,7 +21,9 @@ RUN npm install -g @angular/cli@7.3.9
 # Bundle app source code
 COPY . /usr/src/app
 
-EXPOSE 4200
+RUN ng build --prod
+
+EXPOSE 80
 
 # start app
 CMD ["ng", "serve", "--host", "0.0.0.0", "--proxy-config", "proxy.config.json"]
