@@ -27,4 +27,4 @@ RUN ng build --prod
 EXPOSE 80
 
 # start app
-CMD ["nginx"]
+ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
