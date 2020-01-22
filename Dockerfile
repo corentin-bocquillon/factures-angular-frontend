@@ -5,6 +5,8 @@ FROM node:13.6.0
 RUN apt-get update
 RUN apt-get install -y nginx
 
+RUN service nginx disable
+
 COPY ./docker/etc/nginx/sites-enabled/site.conf /etc/nginx/sites-enabled/site.conf
 RUN rm /etc/nginx/sites-enabled/default
 
