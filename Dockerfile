@@ -1,6 +1,8 @@
 # base image
 FROM node:13.6.0
 
+COPY ./docker/usr/local/bin/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
 # Install needed packages
 RUN apt-get update
 RUN apt-get install -y nginx
@@ -26,7 +28,7 @@ RUN ng build --prod
 
 EXPOSE 80
 
-CMD ["ng", "serve", "--proxy-config", "proxy.config.json"]
+# CMD ["ng", "serve", "--proxy-config", "proxy.config.json"]
 
 # start app
 # ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
