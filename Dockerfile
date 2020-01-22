@@ -27,4 +27,4 @@ RUN ng build --prod
 EXPOSE 80
 
 # start app
-# CMD ["ng", "serve", "--host", "0.0.0.0", "--proxy-config", "proxy.config.json"]
+CMD ["ng", "serve", "--host", "0.0.0.0", "--proxy-config", "proxy.config.json"]
