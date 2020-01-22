@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get install -y nginx
 
 COPY ./docker/etc/nginx/sites-enabled/site.conf /etc/nginx/sites-enabled/site.conf
+RUN rm /etc/nginx/sites-enabled/default
 
 # set working directory
 WORKDIR /usr/src/app
@@ -26,4 +27,4 @@ RUN ng build --prod
 EXPOSE 80
 
 # start app
-CMD ["ng", "serve", "--host", "0.0.0.0", "--proxy-config", "proxy.config.json"]
+# CMD ["ng", "serve", "--host", "0.0.0.0", "--proxy-config", "proxy.config.json"]
