@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json ./package.json
+COPY package*.json ./package.json
 RUN npm install
 RUN npm install -g @angular/cli@7.3.9
 
