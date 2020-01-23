@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     userEmail: string;
     userPassword: string;
     connectionForm;
+    initialHeights;
 
     constructor(private authService: AuthService,
                 private router: Router,
@@ -21,6 +22,11 @@ export class LoginComponent implements OnInit, OnDestroy {
             email: '',
             password: ''
         });
+
+        this.initialHeights = {
+            html: document.getElementsByTagName('html')[0].style.height,
+            body: document.getElementsByTagName('body')[0].style.height,
+        };
     }
 
     ngOnInit() {
@@ -29,8 +35,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        document.getElementsByTagName('html')[0].style.height = null;
-        document.getElementsByTagName('body')[0].style.height = null;
+        document.getElementsByTagName('html')[0].style.height = this.initialHeights.html;
+        document.getElementsByTagName('body')[0].style.height = this.initialHeights.body;
     }
 
     login(){
