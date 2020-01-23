@@ -1,4 +1,7 @@
-html, body, app-root, app-login {
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
 }
 
