@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
     userEmail: string;
     userPassword: string;
@@ -25,7 +25,12 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         let body = document.getElementsByTagName('body')[0];
-        body.classList.add('.centeredBody');
+        body.classList.add('centeredBody');
+    }
+
+    ngOnDestroy() {
+        let body = document.getElementsByTagName('body')[0];
+        body.classList.remove('centeredBody');
     }
 
     login(){
