@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         document.getElementsByTagName('html')[0].style.height = "inherit";
-        document.getElementsByTagName('body')[0].style.height = "inherit";
+        document.getElementsByTagName('body')[0].style = null;
     }
 
     login(){
