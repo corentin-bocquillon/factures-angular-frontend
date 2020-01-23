@@ -2,4 +2,6 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 300px;
+    min-width: 200px;
 }
