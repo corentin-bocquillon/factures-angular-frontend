@@ -39,13 +39,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         document.getElementsByTagName('body')[0].style.height = this.initialHeights.body;
     }
 
-    login(){
-    }
-
     onSubmit(customerData) {
         // Process checkout data here
         if(customerData.email && customerData.password) {
-            console.warn('testq');
             this.userEmail = customerData.email;
             this.userPassword = customerData.password;
         }
@@ -60,8 +56,6 @@ export class LoginComponent implements OnInit, OnDestroy {
                   (response) => {
                       console.warn('Authentication failed.');
                   })
-
-        console.log('Login has been submitted', customerData);
 
         this.connectionForm.reset();
     }

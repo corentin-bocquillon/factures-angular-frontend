@@ -24,4 +24,12 @@ export class AuthService {
         console.warn('Validation in progress…');
         return this.http.post('/api/authenticate', {'username' : email, 'password' : password}).toPromise()
     }
+
+    public logout() {
+        if (!isAuthenticated()) {
+            return;
+        }
+
+        this.http.get('/api/logout');
+    }
 }
