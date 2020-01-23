@@ -1,10 +1,11 @@
-<div class="loginform">
+<div class="loginForm">
   <form [formGroup]="connectionForm" (ngSubmit)="onSubmit(connectionForm.value)">
     <label for="email">Email :</label>
     <input type="text" id="email" formControlName="email" /><br />
     
     <label for="password">Password :</label>
     <input type="password" id="password" formControlName="password" /><br />
-    <button class="button" type="submit">Login</button>
+
+    <button class="loginButton" type="submit">Login</button>
   </form>
 </div>
