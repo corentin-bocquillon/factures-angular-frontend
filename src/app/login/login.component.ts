@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        let body = document.getElementsByTagName('body')[0];
-        body.classList.add('centeredBody');
+        document.getElementsByTagName('html')[0].style.height = "100%";
+        document.getElementsByTagName('body')[0].style.height = "100%";
     }
 
     ngOnDestroy() {
-        let body = document.getElementsByTagName('body')[0];
-        body.classList.remove('centeredBody');
+        document.getElementsByTagName('html')[0].style.height = "inherit";
+        document.getElementsByTagName('body')[0].style.height = "inherit";
     }
 
     login(){
