@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        let body = document.getElementsByTagName('body')[0];
+        body.classList.add('.centeredBody');
     }
 
     login(){
