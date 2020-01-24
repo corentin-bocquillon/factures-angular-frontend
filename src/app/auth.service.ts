@@ -26,7 +26,7 @@ export class AuthService {
     }
 
     public logout() {
-        if (!isAuthenticated()) {
+        if (!this.isAuthenticated()) {
             return;
         }
 
