@@ -3,7 +3,7 @@ FROM node:13.6.0
 
 COPY ./docker/docker-entrypoint.sh /docker-entrypoint.sh
 
-# Install needed packages
+# Install nginx to serve the angular app
 RUN apt-get update
 RUN apt-get install -y nginx
 

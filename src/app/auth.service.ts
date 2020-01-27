@@ -31,5 +31,7 @@ export class AuthService {
         }
 
         this.http.get('/api/logout');
+        localStorage.setItem('userInfo', null);
+        this.router.navigate(['login']);
     }
 }
