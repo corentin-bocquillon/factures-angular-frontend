@@ -1,0 +1,17 @@
+<div class="container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="companyName">Company name (“{{companyName}}” currently):</label>
+    <input type="text" formControlName="companyName" id="companyName" class="form-control">
+
+    <label for="companyAddress">Company address:</label>
+    <input type="text" formControlName="companyAddress" id="companyAddress" class="form-control">
+
+    <label for="companyNumber">Company number:</label>
+    <input type="text" formControlName="companyNumber" id="companyNumber" class="form-control">
+
+    <label for="phoneNumber">Phone number:</label>
+    <input type="tel" formControlName="phoneNumber" id="phoneNumber" class="form-control">
+
+    <button type="submit" class="btn btn-primary mt-2">Update</button>
+  </form>
+</div>

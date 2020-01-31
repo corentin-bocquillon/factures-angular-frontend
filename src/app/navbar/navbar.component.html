@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-1" *ngIf="authService.isAuthenticated()">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand" routerLink="/">Factures</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a href="#" routerLink="/">Create bill</a></li>
+      <li class="nav-item"><a href="#" routerLink="/profile">Profile</a></li>
+      <li class="nav-item"><a href="#" (click)="authService.logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>

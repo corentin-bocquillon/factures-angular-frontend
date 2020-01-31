@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -15,9 +16,11 @@ import { NavbarComponent } from './navbar/navbar.component';
         HomeComponent,
         LoginComponent,
         NavbarComponent,
+        ProfileComponent,
     ],
     imports: [
         ReactiveFormsModule,
+        FormsModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule
