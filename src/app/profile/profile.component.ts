@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
         this.getProfile();
     }
 
-    private onSubmit() {
+    onSubmit() {
         console.log("Profile submited!");
     }
 
