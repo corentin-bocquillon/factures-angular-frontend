@@ -48,13 +48,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         this.authService.validate(this.userEmail, this.userPassword)
             .then((response) => {
-                console.warn('Authentication success');
                 this.authService.setUserInfo({'user' : response['user']});
                 this.router.navigate(['']);
 
             },
                   (response) => {
-                      console.warn(response);
                       console.warn('Authentication failed!');
                   })
 
