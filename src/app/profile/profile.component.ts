@@ -30,11 +30,13 @@ export class ProfileComponent implements OnInit {
     private getProfile() {
         // Get profile using api.
         // Set form initial value
-        let profile = this.http.get('/api/profile');
-        if (profile) {
-            console.warn(profile);
-        } else {
-            // Redirect to error page.
-        }
+        let profile = this.http.get('/api/profile').toPromise()
+            .then(res => {
+                if (res.json()) {
+                    console.warn(res.json);
+                } else {
+                    // Redirect to error page.
+                }
+            });
     }
 }
