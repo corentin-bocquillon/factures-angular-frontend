@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
         // Set form initial value
         let profile = this.http.get('/api/profile').toPromise()
             .then(res => {
-                if (res.json()) {
+                if (res) {
                     console.warn(res.json);
                 } else {
                     // Redirect to error page.
