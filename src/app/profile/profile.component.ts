@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+import { User } from '../user';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -30,16 +32,14 @@ export class ProfileComponent implements OnInit {
     private getProfile() {
         // Get profile using api.
         // Set form initial value
-        let profile = this.http.get('/api/profile').toPromise()
-            .then(res => {
-                let body = res.json()
-
-                if (res) {
+        let profile = this.http.get<User>('/api/profile').toPromise()
+            .then(user => {
+                if (user) {
                     this.profileForm.setValue({
-                        companyName: body.companyName,
-                        companyAddress: body.companyAddress,
-                        companyNumber: body.companyNumber,
-                        phoneNumber: body.phoneNumber
+                        companyName: user.companyName,
+                        companyAddress: user.companyAddress,
+                        companyNumber: user.companyNumber,
+                        phoneNumber: user.phoneNumber
                     });
                 }
             });
