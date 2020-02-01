@@ -32,12 +32,14 @@ export class ProfileComponent implements OnInit {
         // Set form initial value
         let profile = this.http.get('/api/profile').toPromise()
             .then(res => {
+                let body = res.json()
+
                 if (res) {
                     this.profileForm.setValue({
-                        companyName: res.companyName,
-                        companyAddress: res.companyAddress,
-                        companyNumber: res.companyNumber,
-                        phoneNumber: res.phoneNumber
+                        companyName: body.companyName,
+                        companyAddress: body.companyAddress,
+                        companyNumber: body.companyNumber,
+                        phoneNumber: body.phoneNumber
                     });
                 }
             });
