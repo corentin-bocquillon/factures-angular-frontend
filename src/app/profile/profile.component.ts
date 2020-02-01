@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
         let profile = this.http.get('/api/profile').toPromise()
             .then(res => {
                 if (res) {
-                    console.warn(res.json);
+                    console.warn(res);
                 } else {
                     // Redirect to error page.
                 }
