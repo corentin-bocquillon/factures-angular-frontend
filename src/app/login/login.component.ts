@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
             },
                   (response) => {
-                      console.warn('Authentication failed.');
+                      console.warn('Authentication failed : ' + response.message);
                   })
 
         this.connectionForm.reset();
