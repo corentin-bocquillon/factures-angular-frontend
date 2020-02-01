@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
     companyName = "company name";
 
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private http: HttpClient, private formBuilder: FormBuilder) { }
 
     ngOnInit() {
         this.getProfile();
@@ -29,5 +30,11 @@ export class ProfileComponent implements OnInit {
     private getProfile() {
         // Get profile using api.
         // Set form initial value
+        let profile = this.http.get('/api/profile');
+        if (profile) {
+            console.warn(profile);
+        } else {
+            // Redirect to error page.
+        }
     }
 }
