@@ -16,8 +16,6 @@ export class ProfileComponent implements OnInit {
             companyNumber: [''],
             phoneNumber: ['']
         });
-    companyName = "company name";
-
 
     constructor(private http: HttpClient, private formBuilder: FormBuilder) { }
 
@@ -26,13 +24,16 @@ export class ProfileComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log("Profile submited!");
+        this.http.post<User>('/api/profile', this.getUser()).toPromise()
+            .then(() => {
+                this.getProfile();
+            });
     }
 
     private getProfile() {
         // Get profile using api.
         // Set form initial value
-        let profile = this.http.get<User>('/api/profile').toPromise()
+        this.http.get<User>('/api/profile').toPromise()
             .then(user => {
                 if (user) {
                     this.profileForm.setValue({
