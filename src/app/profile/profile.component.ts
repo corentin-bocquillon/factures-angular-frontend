@@ -45,4 +45,11 @@ export class ProfileComponent implements OnInit {
                 }
             });
     }
+
+    private getUser(): User {
+        return new User(this.profileForm.companyName.value,
+                        this.profileForm.companyAddress.value,
+                        this.profileForm.companyNumber.value,
+                        this.profileForm.companyNumber.value);
+    }
 }
