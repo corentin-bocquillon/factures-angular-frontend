@@ -47,9 +47,9 @@ export class ProfileComponent implements OnInit {
     }
 
     private getUser(): User {
-        return new User(this.profileForm.companyName.value,
-                        this.profileForm.companyAddress.value,
-                        this.profileForm.companyNumber.value,
-                        this.profileForm.companyNumber.value);
+        return new User(this.profileForm.controls['companyName'].value,
+                        this.profileForm.controls['companyAddress'].value,
+                        this.profileForm.controls['companyNumber'].value,
+                        this.profileForm.controls['companyNumber'].value);
     }
 }
